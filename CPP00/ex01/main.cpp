@@ -6,7 +6,7 @@
 /*   By: keramos- <keramos-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 18:34:03 by keramos-          #+#    #+#             */
-/*   Updated: 2024/12/07 22:39:40 by keramos-         ###   ########.fr       */
+/*   Updated: 2024/12/17 21:06:45 by keramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ int	main(void)
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 			return (0);
-		if (input == "ADD")
+		if (input == "ADD" || input == "1")
 			phoneBook.add_contact();
-		else if (input == "SEARCH")
+		else if (input == "SEARCH" || input == "2")
 			phoneBook.search_contact();
-		else if (input == "EXIT")
+		else if (input == "EXIT" || input == "3")
 		{
 			system("clear");
 			std::cout << "Goodbye! 👋🏻" << std::endl;

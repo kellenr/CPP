@@ -6,7 +6,7 @@
 /*   By: keramos- <keramos-@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 18:33:05 by keramos-          #+#    #+#             */
-/*   Updated: 2024/12/07 21:22:35 by keramos-         ###   ########.fr       */
+/*   Updated: 2024/12/17 20:09:41 by keramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <iomanip>
 
 class	Contact
 {
@@ -33,6 +34,12 @@ class	Contact
 		void	set_nickname(const std::string &value);
 		void	set_phone_number(const std::string &value);
 		void	set_darkest_secret(const std::string &value);
+
+		// Display short contact info (for SEARCH table)
+		void displayShort(int index) const;
+
+		// Display full contact details (for SEARCH)
+		void displayFull() const;
 
 	private:
 		std::string	first_name;
