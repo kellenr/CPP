@@ -3,32 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kellen <kellen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: keramos- <keramos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:35:47 by kellen            #+#    #+#             */
-/*   Updated: 2025/04/01 10:35:49 by kellen           ###   ########.fr       */
+/*   Updated: 2025/04/10 17:08:20 by keramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// ScavTrap.hpp
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 
-#include <iostream>
-#include <string>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
-{
+class ScavTrap : public ClapTrap {
 	public:
+		// Orthodox Canonical Form
 		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap const & other);
+		ScavTrap(const std::string& name);
+		ScavTrap(const ScavTrap& other);
+		ScavTrap& operator=(const ScavTrap& other);
 		~ScavTrap();
 
-		ScavTrap & operator=(ScavTrap const & other);
-
-		void attack(std::string const & target);
-		void guardGate(void);
+		// Member functions
+		void attack(const std::string& target);
+		void guardGate();
 };
 
 #endif

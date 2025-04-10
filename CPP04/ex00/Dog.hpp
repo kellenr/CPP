@@ -1,0 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: keramos- <keramos-@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/10 19:51:52 by keramos-          #+#    #+#             */
+/*   Updated: 2025/04/10 20:23:41 by keramos-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+// Dog.hpp
+#ifndef DOG_HPP
+# define DOG_HPP
+
+# include "Animal.hpp"
+
+class Dog : public Animal {
+	public:
+		Dog();
+		Dog(const Dog &other);
+		Dog &operator=(const Dog &other);
+		~Dog();
+
+		void makeSound() const;
+};
+
+#endif

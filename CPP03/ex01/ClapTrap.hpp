@@ -3,45 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kellen <kellen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: keramos- <keramos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:35:16 by kellen            #+#    #+#             */
-/*   Updated: 2025/04/01 10:35:19 by kellen           ###   ########.fr       */
+/*   Updated: 2025/04/10 17:06:52 by keramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 
-# include <iostream>
-# include <string>
+#include <string>
+#include <iostream>
 
-class ClapTrap
-{
+class ClapTrap {
+	protected:
+		std::string name;
+		unsigned int hitPoints;
+		unsigned int energyPoints;
+		unsigned int attackDamage;
+
 	public:
+		// Orthodox Canonical Form
 		ClapTrap();
-		ClapTrap(std::string name);
-		ClapTrap(ClapTrap const & other);
+		ClapTrap(const std::string& name);
+		ClapTrap(const ClapTrap& other);
+		ClapTrap& operator=(const ClapTrap& other);
 		~ClapTrap();
 
-		ClapTrap & operator=(ClapTrap const & other);
-
-		void attack(std::string const & target);
+		// Member functions
+		void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 
-		int getHitpoints(void) const;
-		int getEnergyPoints(void) const;
-		std::string getName(void) const;
+		// Getters (useful for derived classes)
+		std::string getName() const;
+		unsigned int getHitPoints() const;
+		unsigned int getEnergyPoints() const;
+		unsigned int getAttackDamage() const;
 
-		void setAttackDamage(int damage);
-		void setName(std::string name);
-
-	protected:
-		std::string _name;
-		int _hitPoints;
-		int _energyPoints;
-		int _attackDamage;
+		// Setters for derived classes
+		void setHitPoints(unsigned int hitPoints);
+		void setEnergyPoints(unsigned int energyPoints);
+		void setAttackDamage(unsigned int attackDamage);
 };
 
 #endif

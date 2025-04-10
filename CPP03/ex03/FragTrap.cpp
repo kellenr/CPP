@@ -3,51 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kellen <kellen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: keramos- <keramos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:37:41 by kellen            #+#    #+#             */
-/*   Updated: 2025/04/01 10:38:25 by kellen           ###   ########.fr       */
+/*   Updated: 2025/04/10 17:19:33 by keramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// FragTrap.cpp
 #include "FragTrap.hpp"
 
+// Default constructor
 FragTrap::FragTrap() : ClapTrap() {
-	std::cout << "FragTrap default Constructor called." << std::endl;
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+	std::cout << "FragTrap default constructor called" << std::endl;
+	setHitPoints(100);
+	setEnergyPoints(100);
+	setAttackDamage(30);
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-	std::cout << "FragTrap constructor called." << std::endl;
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+// Parameterized constructor
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name) {
+	std::cout << "FragTrap parameterized constructor called for " << name << std::endl;
+	setHitPoints(100);
+	setEnergyPoints(100);
+	setAttackDamage(30);
 }
 
-FragTrap::FragTrap(const FragTrap &other) {
-	std::cout << "FragTrap copy Constructor called." << std::endl;
-	*this = other;
+// Copy constructor
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {
+	std::cout << "FragTrap copy constructor called" << std::endl;
 }
 
-FragTrap::~FragTrap() {
-	std::cout << "FragTrap destructor called." << std::endl;
-}
-
-FragTrap & FragTrap::operator=(const FragTrap &other)
-{
-	std::cout << "FragTrap assignation operator called." << std::endl;
-	if (this == &other)
-		return *this;
-	_name = other.getName();
-	_hitPoints = other.getHitPoints();
-	_energyPoints = other.getEnergyPoints();
-	_attackDamage = other.getAttackDamage();
+// Assignment operator
+FragTrap& FragTrap::operator=(const FragTrap& other) {
+	std::cout << "FragTrap assignment operator called" << std::endl;
+	if (this != &other) {
+		ClapTrap::operator=(other);
+	}
 	return *this;
 }
 
-void FragTrap::highFivesGuys(void)
-{
-	std::cout << "FragTrap " << _name << " high fives guys!" << std::endl;
+// Destructor
+FragTrap::~FragTrap() {
+	std::cout << "FragTrap destructor called for " << getName() << std::endl;
+}
+
+// Special ability
+void FragTrap::highFivesGuys(void) {
+	std::cout << "FragTrap " << getName() << " requests a high five from everyone!" << std::endl;
 }

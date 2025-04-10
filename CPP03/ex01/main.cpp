@@ -3,48 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kellen <kellen@student.42.fr>              +#+  +:+       +#+        */
+/*   By: keramos- <keramos-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/01 10:35:26 by kellen            #+#    #+#             */
-/*   Updated: 2025/04/01 10:35:29 by kellen           ###   ########.fr       */
+/*   Updated: 2025/04/10 17:15:07 by keramos-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Updated main.cpp for ex01
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-int main(void)
-{
-	ClapTrap player2("Patrik");
-	ScavTrap player1("SpongeBob");
-	ScavTrap player3("Squidward");
+int main() {
+	std::cout << "--- Testing ClapTrap ---" << std::endl;
+	ClapTrap clap("CL4P-TP");
+	clap.attack("Target Dummy");
+	clap.takeDamage(5);
+	clap.beRepaired(3);
 
-	player2.setAttackDamage(30);
+	std::cout << "\n--- Testing ScavTrap ---" << std::endl;
+	ScavTrap scav("SC4V-TP");
+	scav.attack("Enemy Robot");
+	scav.takeDamage(30);
+	scav.beRepaired(20);
+	scav.guardGate();
 
-	player3.guardGate();
-
-	while (player1.getEnergyPoints() > 0 && player2.getEnergyPoints() > 0 && player3.getEnergyPoints() > 0)
+	std::cout << "\n--- Testing Construction/Destruction Order ---" << std::endl;
 	{
-		std::cout << "--------------------------------------------------------------------" << std::endl;
-		std::cout << player1.getName() << " Energy points: " << player1.getEnergyPoints() << std::endl;
-		std::cout << player2.getName() << " Energy points: " << player2.getEnergyPoints() << std::endl;
-		std::cout << player3.getName() << " Energy points: " << player3.getEnergyPoints() << std::endl;
-		std::cout << "--------------------------------------------------------------------" << std::endl;
-		player1.attack("Squidward");
-		player3.takeDamage(20);
-		player3.beRepaired(20);
-		player2.attack("Squidward");
-		player3.takeDamage(30);
-		player3.beRepaired(30);
-		player3.attack("SpongeBob");
-		player1.takeDamage(20);
-		player1.beRepaired(20);
-		if(player1.getEnergyPoints() == 0)
-			std::cout << player1.getName() << " is out of energy points!" << std::endl;
-		if(player2.getEnergyPoints() == 0)
-			std::cout << player2.getName() << " is out of energy points!" << std::endl;
-		if(player3.getEnergyPoints() == 0)
-			std::cout << player3.getName() << " is out of energy points!" << std::endl;
+		std::cout << "Creating a ScavTrap..." << std::endl;
+		ScavTrap temp("Temporary");
+		std::cout << "ScavTrap created, now going out of scope..." << std::endl;
 	}
+
 	return 0;
 }
+
