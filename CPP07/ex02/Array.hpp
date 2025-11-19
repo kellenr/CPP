@@ -6,7 +6,7 @@
 /*   By: kellen <kellen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 22:20:22 by kellen            #+#    #+#             */
-/*   Updated: 2025/10/06 22:21:23 by kellen           ###   ########.fr       */
+/*   Updated: 2025/11/13 17:33:25 by kellen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 # define ARRAY_HPP
 
 # include <iostream>
+# include <exception>
+# include <cstdlib>
+# include <ctime>
+
+#define MAX_VAL 750
+
 
 template <typename T>
 class Array
@@ -92,4 +98,3 @@ const char *Array<T>::OutOfBoundException::what() const throw()
 }
 
 #endif
-

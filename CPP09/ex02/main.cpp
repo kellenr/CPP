@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kellen <kellen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/06 22:15:04 by kellen            #+#    #+#             */
-/*   Updated: 2025/11/19 22:44:27 by kellen           ###   ########.fr       */
+/*   Created: 2025/11/19 22:38:44 by kellen            #+#    #+#             */
+/*   Updated: 2025/11/19 22:38:50 by kellen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-# define ITER_HPP
+#include "PmergeMe.hpp"
 
-# include <iostream>
-
-template <typename T, typename FUNC>
-void iter(T* array, size_t length, FUNC func) {
-	for (size_t i = 0; i < length; ++i) {
-		func(array[i]);
+int main(int argc, char** argv) {
+	if (argc < 2) {
+		std::cerr << "Error" << std::endl;
+		return 1;
 	}
-}
 
-template <typename T>
-void printElement(T const element) {
-	std::cout << element << std::endl;
-}
+	try {
+		PmergeMe sorter;
+		sorter.parseInput(argc, argv);
+		sorter.sort();
+	}
+	catch (const std::exception& e) {
+		std::cerr << e.what() << std::endl;
+		return 1;
+	}
 
-#endif
+	return 0;
+}

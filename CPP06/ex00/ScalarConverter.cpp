@@ -6,7 +6,7 @@
 /*   By: kellen <kellen@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 21:20:13 by kellen            #+#    #+#             */
-/*   Updated: 2025/10/06 21:35:51 by kellen           ###   ########.fr       */
+/*   Updated: 2025/11/12 20:08:11 by kellen           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ ScalarConverter::ScalarConverter(ScalarConverter const &other) { (void)other; }
 ScalarConverter &ScalarConverter::operator=(ScalarConverter const &other) { (void)other; return *this; }
 
 ScalarConverter::~ScalarConverter(void) {}
+
+/* --------------------------------------------------------------------------- */
 
 void ScalarConverter::convert(std::string const &input)
 {
